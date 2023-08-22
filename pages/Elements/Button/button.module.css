@@ -1,0 +1,18 @@
+.Button{
+    padding:15px 35px 15px 35px;
+    color: white;
+
+    background: linear-gradient(100.15deg, #1A4EB5 0%, #245FD3 0.01%, #11409D 100%);
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.74);
+    border-radius: 3px;
+
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    border: 0;
+}
+.Button:hover{
+    background: linear-gradient(100.15deg, #3A5FA7 0%, #17356F 0.01%, #06142F 100%);
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.74);
+    cursor: pointer;
+}
