@@ -35,7 +35,7 @@ const Banner = () => {
                 <div className="content-banner" style={{backgroundImage: `url(background-banner.png)`}}>
                     <div className="content-banner-info">
                         <div className="left-info">
-                            <h1>High Service For Every Customer</h1>
+                            <h1>High Service For Every Customer 1</h1>
                             <Link href={"/booking"}>
                                 <Button>Book Now</Button>
                             </Link>
