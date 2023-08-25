@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Menu} from 'antd';
 import {MailOutlined, AppstoreOutlined, SettingOutlined} from '@ant-design/icons';
+import Link from "next/link";
 
 const {SubMenu, Item} = Menu;
 
@@ -18,13 +19,13 @@ const MobileMenu = () => {
             onOpenChange={handleMenuOpenChange}
         >
             <Item key="1">
-                Home
+                <Link href='/home'>Home</Link>
             </Item>
             <Item key="1">
-                About us
+                <Link href='/about'>About us</Link>
             </Item>
             <Item key="1">
-                Blog
+                <Link href={'/blog'}>Blog</Link>
             </Item>
 
             <SubMenu key="sub1" title="Service">
@@ -35,7 +36,7 @@ const MobileMenu = () => {
             </SubMenu>
 
             <Item key="1">
-                Contact
+                <Link href='/contact'>Contact</Link>
             </Item>
         </Menu>
     );

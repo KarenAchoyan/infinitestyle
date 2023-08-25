@@ -39,20 +39,16 @@ const Service = () => {
             <span className="item-row">
               <img src={'passenger.png'} alt=""/>
               Passengers
-              {avatar.passengersNumber}
+              <span className={'result-number'}>{avatar.passengersNumber}</span>
             </span>
             <span className="item-row">
               <img src={'Frame.svg'} alt=""/>
               Bags
-              {avatar.bagsCount}
+             <span className={'result-number'}> {avatar.bagsCount}</span>
             </span>
             <span className="item-row">
               <img src={'wifi.svg'} alt=""/>
               On Board Wi-Fi
-            </span>
-            <span className="item-row">
-              <img src={'image2.svg'} alt=""/>
-              Black Leather
             </span>
           </div>
         </div>

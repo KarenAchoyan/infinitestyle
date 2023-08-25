@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Link from "next/link";
 import Button from "@/pages/Elements/Button/button";
+import BookingForm from "@/components/bookingForm";
 
 const Banner = () => {
     const [isHeaderVisible, setHeaderVisible] = useState(true);
@@ -33,12 +34,10 @@ const Banner = () => {
                      style={{backgroundImage: `url(banner.png)`}}>
                 </div>
                 <div className="content-banner" style={{backgroundImage: `url(background-banner.png)`}}>
+                    <h1>High Service For Every Customer</h1>
                     <div className="content-banner-info">
                         <div className="left-info">
-                            <h1>High Service For Every Customer 1</h1>
-                            <Link href={"/booking"}>
-                                <Button>Book Now</Button>
-                            </Link>
+                            <BookingForm/>
                         </div>
                         <div className="right-info">
                             <img src={'car.png'} alt=""/>

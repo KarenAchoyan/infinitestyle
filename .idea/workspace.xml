@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb614947-60a6-4318-b74b-4b799d3e9832" name="Changes" comment="" />
+    <list default="true" id="fb614947-60a6-4318-b74b-4b799d3e9832" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/booking/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/booking/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/header/mobileMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/header/mobileMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/banner/banner.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/banner/banner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/service/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/service/service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +70,7 @@
       <recent name="C:\xampp\htdocs\infinite-react\front\public" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -96,9 +103,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.dev" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
-        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -136,6 +143,7 @@
       <workItem from="1692717940430" duration="5372000" />
       <workItem from="1692731899014" duration="1657000" />
       <workItem from="1692740324333" duration="667000" />
+      <workItem from="1692945310011" duration="2765000" />
     </task>
     <servers />
   </component>
