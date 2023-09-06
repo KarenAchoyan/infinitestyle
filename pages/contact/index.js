@@ -3,7 +3,7 @@ import { Form, Input, Button, message } from 'antd';
 import Header from '@/pages/header/header';
 import Footer from '@/pages/footer/footer';
 import Head from 'next/head';
-import { PhoneOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
+import { PhoneOutlined, MailOutlined, UserOutlined, PushpinOutlined} from '@ant-design/icons';
 import FooterBanner from "@/pages/home/footerBanner/footerBanner";
 
 const { TextArea } = Input;
@@ -40,7 +40,7 @@ const Contact = () => {
             <div className="row-icons">
               <div className="group-contact">
                 <div className="icon-round">
-                  {/* <CallIcon/> */}
+                   <PhoneOutlined/>
                 </div>
                 <div>
                   <p>Have a question?</p>
@@ -58,7 +58,7 @@ const Contact = () => {
               </div>
               <div className="group-contact">
                 <div className="icon-round">
-                  {/* <FmdGoodOutlinedIcon/> */}
+                <PushpinOutlined />
                 </div>
                 <div>
                   <p>Our Address</p>
