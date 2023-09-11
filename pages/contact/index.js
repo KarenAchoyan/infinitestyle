@@ -1,17 +1,25 @@
 import React from 'react';
 import { Form, Input, Button, message } from 'antd';
-import Header from '@/pages/header/header';
-import Footer from '@/pages/footer/footer';
+import {
+  UserOutlined,
+  MailOutlined,
+  PhoneOutlined,
+  PushpinOutlined,
+} from '@ant-design/icons';
 import Head from 'next/head';
-import { PhoneOutlined, MailOutlined, UserOutlined, PushpinOutlined} from '@ant-design/icons';
-import FooterBanner from "@/pages/home/footerBanner/footerBanner";
+import FooterBanner from '@/pages/home/footerBanner/footerBanner';
 
 const { TextArea } = Input;
 
+import Header from '@/pages/header/header';
+import Footer from '@/pages/footer/footer';
 const Contact = () => {
+  const [form] = Form.useForm(); // Create a form instance
+
   const onFinish = (values) => {
     console.log('Form values:', values);
     message.success('Form submitted successfully');
+    form.resetFields(); // Reset the form fields
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -20,7 +28,7 @@ const Contact = () => {
   return (
     <div>
       <Head>
-        <title>Contact page infinite</title>
+        <title>Infinite - Book A Limo In Los Angeles</title>
       </Head>
       <Header />
       <div
@@ -44,7 +52,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p>Have a question?</p>
-                  <h5>+12345166</h5>
+                  <h5><a href='whatsapp://send?phone=+12345166'>+12345166</a></h5>
                 </div>
               </div>
               <div className="group-contact">
@@ -53,7 +61,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p>Contact us at</p>
-                  <h5>infinite@.co</h5>
+                  <h5><a href='mailto:infinite@.co'>infinite@.co</a></h5>
                 </div>
               </div>
               <div className="group-contact">
@@ -69,62 +77,93 @@ const Contact = () => {
           </div>
           <div className="section-contact">
             <div className="form-contact">
-              <Form onFinish={onFinish} onFinishFailed={onFinishFailed}>
-                <Form.Item
-                  name="name"
-                  rules={[{ required: true, message: 'Please enter your name' }]}
-                >
-                  <Input
-                    prefix={<UserOutlined />}
-                    variant="outlined"
-                    fullWidth
-                    placeholder="Enter your name"
-                  />
-                </Form.Item>
-                <Form.Item
-                  name="email"
-                  rules={[
-                    { required: true, message: 'Please enter your email' },
-                    { type: 'email', message: 'Please enter a valid email' },
-                  ]}
-                >
-                  <Input
-                    prefix={<MailOutlined />}
-                    variant="outlined"
-                    fullWidth
-                    placeholder="Email"
-                  />
-                </Form.Item>
-                <Form.Item
-                  name="phone"
-                  rules={[
-                    { required: true, message: 'Please enter your phone number' },
-                    {
-                      pattern: /^\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{4})$/,
-                      message: 'Please enter a valid US phone number',
-                    },
-                  ]}
-                >
-                  <Input
-                    prefix={<PhoneOutlined />}
-                    variant="outlined"
-                    fullWidth
-                    placeholder="12345678900"
-                  />
-                </Form.Item>
+            <Form
+              form={form} // Pass the form instance to the Form component
+              onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
+            >
+                  <Form.Item
+                name="name"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please enter your name',
+                  },
+                  {
+                    pattern: /^[a-zA-Z ]{1,32}$/,
+                    message:
+                      'Please enter a valid name (max 32 characters, letters and spaces only)',
+                  },
+                ]}
+              >
+                <Input
+                  prefix={<UserOutlined />}
+                  placeholder="Enter your name*"
+                />
+              </Form.Item>
+              <Form.Item
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please enter your email',
+                  },
+                  {
+                    type: 'email',
+                    message: 'Please enter a valid email',
+                  },
+                ]}
+              >
+                <Input
+                  prefix={<MailOutlined />}
+                  placeholder="Email*"
+                />
+              </Form.Item>
+              <Form.Item
+                name="phone"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please enter your phone number',
+                  },
+                  {
+                    pattern: /^\+1\d{10}$/,
+                    message:
+                      'Please enter a valid US phone number (e.g., +11234567890)',
+                  },
+                ]}
+              >
+                <Input
+                  prefix={<PhoneOutlined />}
+                  placeholder="+11234567890*"
+                />
+              </Form.Item>
 
-                <Form.Item
-                  name="message"
-                  rules={[{ required: true, message: 'Please enter your message' }]}
-                >
-                  <TextArea variant="outlined" fullWidth placeholder="Message" />
-                </Form.Item>
-                <div className="form-group">
-                  <Button type="primary" htmlType="submit">
-                    Send
-                  </Button>
-                </div>
-              </Form>
+              <Form.Item
+                name="message"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please enter your message',
+                  },
+                  {
+                    min: 10,
+                    message: 'Message must be at least 10 characters',
+                  },
+                  {
+                    max: 500,
+                    message: 'Message cannot exceed 500 characters',
+                  },
+                ]}
+              >
+                <TextArea placeholder="Message*" />
+              </Form.Item>
+              <div className="form-group">
+                <Button type="primary" htmlType="submit">
+                  Send
+                </Button>
+              </div>
+            </Form>
             </div>
           </div>
         </div>

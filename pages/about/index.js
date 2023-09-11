@@ -11,7 +11,7 @@ const About = () => {
   return (
     <div>
       <Head>
-        <title>About infinite</title>
+      <title>Infinite - Book A Limo In Los Angeles</title>
       </Head>
       <Header/>
 

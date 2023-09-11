@@ -28,7 +28,7 @@ const HomePage = () => {
   return (
     <div>
       <Head>
-        <title>Home infinite</title>
+        <title>Infinite - Book A Limo In Los Angeles</title>
       </Head>
       <Header/>
       <Banner/>

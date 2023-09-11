@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Table, Popconfirm, message} from 'antd';
 import Navbar from "@/pages/admin/header/header";
+import { DeleteOutlined } from '@ant-design/icons';
+import { Button, Space } from 'antd';
 
 const ContactPage = () => {
   const [contactData, setContactData] = useState([]);
@@ -51,7 +53,10 @@ const ContactPage = () => {
           okText="Yes"
           cancelText="No"
         >
-          <a href="#">Delete</a>
+
+        <Button danger type="primary" icon={<DeleteOutlined />} onClick={handleDelete}>
+          Delete
+        </Button>
         </Popconfirm>
       )
     }
