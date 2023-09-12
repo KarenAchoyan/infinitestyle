@@ -5,7 +5,9 @@ const Home = () => {
   return (
     <div>
       <Navbar>
+        <div style={{minHeight:'100vh'}}>
         admin home
+        </div>
       </Navbar>
     </div>
   );
