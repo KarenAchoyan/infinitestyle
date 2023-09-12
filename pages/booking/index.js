@@ -10,6 +10,7 @@ const Booking = () => {
     <div>
       <Header/>
         <BookingForm/>
+        <BookingForm/>
       <Footer/>
     </div>
   );
