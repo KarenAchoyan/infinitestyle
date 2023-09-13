@@ -1,19 +1,45 @@
+import React, {useState} from 'react';
 import Navbar from "@/pages/admin/header/header";
 import { useDispatch, useSelector } from 'react-redux';
-import { getService } from '@/store/service/actions';
+import { addService, getService, updateService } from '@/store/service/actions';
+import {Form, Input, Upload, Button, message} from 'antd';
+
+import dynamic from "next/dynamic";
+const ReactQuill = dynamic(import('react-quill'), {
+  ssr: false,
+  loading: () => <p>Loading ...</p>,
+})
 
 const Index = () => {
-    function clickMe(id){
+  const dispatch = useDispatch();
+
+  const [form] = Form.useForm();
+  const [content, setContent] = useState({});
+
+     function clickMe(id){
         // Its grdon
         try{
             fetch("https://infinite.geeklab.am/api/services/"+id)
             .then(x=>x.json())
-            .then(data=>console.log(data))
+            .then(data=>setContent(data))
         }catch(err){
             console.log(err)
         }
         // its grdon
     }
+    
+  const handleSubmit = (values) => {
+    // Add the avatar to the form values
+    const formData = new FormData();
+    formData.append('content', content);
+    dispatch(updateService.request(formData));
+    form.resetFields();
+    message.success('Blog successfully added!');
+  };
+
+  const handleContentChange = (value) => {
+    // setContent(value);
+  };
     return(
         <Navbar>
             <h1>Service</h1>
@@ -56,6 +82,24 @@ const Index = () => {
 
                     <div>
                     </div>
+
+                    <Form form={form} layout="vertical" onFinish={handleSubmit}>
+
+                    <Form.Item label="Content" name="content">
+                      <ReactQuill
+                        value={content.content}
+                        onChange={handleContentChange}
+                        modules={{
+                          toolbar: {
+                            container: [
+                              ['bold', 'italic', 'underline', 'strike'], // toggled buttons
+                            ],
+                          },
+                        }}
+                      />
+                    </Form.Item>
+
+                    </Form>
         </Navbar>
     )
 }

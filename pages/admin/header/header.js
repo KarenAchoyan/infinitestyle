@@ -86,6 +86,12 @@ const Navbar = (props) => {
                           <Link href="/admin/contact/update">Update Info</Link>
                       </Menu.Item>
                   </SubMenu>
+                  
+                  <SubMenu key="sub35" icon={<UserOutlined />} title="Services">
+                      <Menu.Item key="312">
+                          <Link href="/admin/service/1">Services</Link>
+                      </Menu.Item>
+                  </SubMenu>
                   <Menu.Item key="14" icon={<LogoutOutlined />} onClick={handleLogoutBtn}>
                       Logout
                   </Menu.Item>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const BannerText = ({text}) => {
   return (
-    <div className={'banner-text'} style={{backgroundImage: `url(background-banner.png)`}}>
+    <div className={'banner-text'} style={{backgroundImage: `url(../background-banner.png)`}}>
       {text}
     </div>
   );

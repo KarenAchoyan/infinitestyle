@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Footer from "../footer/footer";
 import Header from "../header/header";
 import Head from 'next/head';
+import BannerText from "@/pages/about/bannerText/bannerText";
 
 const Id = () => {
     const router = useRouter();
@@ -20,7 +21,9 @@ const Id = () => {
                 <title>Infinite - Book A Limo In Los Angeles</title>
              </Head>
                <Header/>
-              <div style={{minHeight:'60vh', width:'90%', margin:'auto'}}>
+               <BannerText text={service.title}/>
+
+              <div style={{minHeight:'60vh', width:'90%', margin:'50px auto'}}>
               {service.content}
               </div>
                <Footer/>
