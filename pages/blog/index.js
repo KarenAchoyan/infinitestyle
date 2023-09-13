@@ -18,7 +18,7 @@ const Blog = () => {
   return (
     <div>
       <Head>
-        <title>Blog infinite</title>
+      <title>Infinite - Book A Limo In Los Angeles</title>
       </Head>
       <Header/>
       <div className={'Blog'}>

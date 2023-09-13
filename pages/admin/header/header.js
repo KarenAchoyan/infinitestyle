@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
@@ -16,6 +16,7 @@ import {
 import { Layout, Menu, Button, theme } from 'antd';
 import Link from "next/link";
 import { handleLogout } from "@/configs/axiosIntance";
+import { useRouter } from 'next/router';
 
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;

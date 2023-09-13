@@ -5,6 +5,7 @@ import Header from "@/pages/header/header";
 import Footer from "@/pages/footer/footer";
 import {useDispatch, useSelector} from "react-redux";
 import {getCars} from "@/store/car/actions";
+import Head from "next/head";
 
 const Vehicles = () => {
   const images = useSelector((state) => state.car.cars);
@@ -16,6 +17,10 @@ const Vehicles = () => {
   return (
     <div>
       <Header/>
+      <Head>
+      <title>Infinite - Book A Limo In Los Angeles</title>
+      </Head>
+
       <BannerText text={"Our Vehicles"}/>
       <div className="vehicles-row">
         {images.map((item,index) => (
