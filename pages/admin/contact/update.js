@@ -7,27 +7,28 @@ import { getContact, updateContact } from '@/store/about/actions';
 const UpdateContactInfoPage = () => {
   const [form] = Form.useForm();
   const dispatch = useDispatch();
-  const contact = useSelector((state) => state.contact);
+  const contact = useSelector((state) => state.contact.contact);
 
   // Fetch contact information on component mount
   useEffect(() => {
     dispatch(getContact.request());
-  }, [dispatch]);
+  }, [dispatch,form]);
 
   // Handle form submission
   const handleSubmit = (values) => {
-    dispatch(updateContact.request(values));
+    const { id } = contact; 
+    dispatch(updateContact.request({ id, values }));
     message.success('Contact information updated successfully!');
   };
 
   // Set form initial values with the fetched contact data
   useEffect(() => {
-    if (contact.contact) {
+    if (contact) {
       form.setFieldsValue({
-        email: contact.contact.email,
-        address: contact.contact.address,
-        phone: contact.contact.phone,
-        aboutMe: contact.contact.aboutMe,
+        email: contact.email,
+        address: contact.address,
+        phone: contact.phone,
+        aboutMe: contact.aboutMe,
       });
     }
   }, [contact, form]);

@@ -1,5 +1,8 @@
 import React from 'react';
 import { Form, Input, Button, message } from 'antd';
+import { useDispatch } from 'react-redux';
+import { insertContact } from '@/store/about/actions'; // Import your new action
+
 import {
   UserOutlined,
   MailOutlined,
@@ -15,11 +18,12 @@ import Header from '@/pages/header/header';
 import Footer from '@/pages/footer/footer';
 const Contact = () => {
   const [form] = Form.useForm(); // Create a form instance
+  const dispatch = useDispatch();
 
   const onFinish = (values) => {
-    console.log('Form values:', values);
+    dispatch(insertContact.request(values))
     message.success('Form submitted successfully');
-    form.resetFields(); // Reset the form fields
+    // form.resetFields(); // Re/set the form fields
   };
 
   const onFinishFailed = (errorInfo) => {

@@ -11,3 +11,21 @@ export const updateContact = {
   success: createAction('UPDATE_CONTACT_SUCCESS'),
   failure: createAction('UPDATE_CONTACT_FAILURE'),
 };
+
+export const insertContact = {
+  request: createAction('INSERT_CONTACT_REQUEST'),
+  success: createAction('INSERT_CONTACT_SUCCESS'),
+  failure: createAction('INSERT_CONTACT_FAILURE'),
+};
+
+export const getAllContacts = {
+  request: createAction('GET_ALL_CONTACTS_REQUEST'),
+  success: createAction('GET_ALL_CONTACTS_SUCCESS'),
+  failure: createAction('GET_ALL_CONTACTS_FAILURE'),
+};
+
+export const deleteContact = {
+  request: createAction('DELETE_CONTACT_REQUEST'),
+  success: createAction('DELETE_CONTACT_SUCCESS'),
+  failure: createAction('DELETE_CONTACT_FAILURE'),
+};
