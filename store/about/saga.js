@@ -41,7 +41,7 @@ function* deleteContactSaga(action) { // New saga for deleting a contact
 function* insertContactSaga(action) {
   try {
     const response = yield call(() => axios.post('/contacts', action.payload));
-    yield put(insertContact.success(response.data));
+    yield put(insertContact.success(response));
   } catch (error) {
     yield put(insertContact.failure(error.message));
   }

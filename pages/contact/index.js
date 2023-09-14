@@ -1,7 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, message } from 'antd';
 import { useDispatch } from 'react-redux';
-import { insertContact } from '@/store/about/actions'; // Import your new action
 
 import {
   UserOutlined,
@@ -16,19 +15,24 @@ const { TextArea } = Input;
 
 import Header from '@/pages/header/header';
 import Footer from '@/pages/footer/footer';
+import { addContactForm } from '@/store/blog/actions';
 const Contact = () => {
   const [form] = Form.useForm(); // Create a form instance
   const dispatch = useDispatch();
 
   const onFinish = (values) => {
-    dispatch(insertContact.request(values))
+    const formData = new FormData();
+    formData.append('name',values.name);
+    formData.append('email',values.email);
+    formData.append('phone',values.phone);
+    formData.append('message',values.message);
+
+    dispatch(addContactForm.request(formData))
     message.success('Form submitted successfully');
-    // form.resetFields(); // Re/set the form fields
+    form.resetFields(); // Re/set the form fields
   };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log('Form validation failed:', errorInfo);
-  };
+
   return (
     <div>
       <Head>
@@ -84,7 +88,6 @@ const Contact = () => {
             <Form
               form={form} // Pass the form instance to the Form component
               onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
             >
                   <Form.Item
                 name="name"

@@ -5,10 +5,12 @@ import {
   addBlog,
   updateBlog,
   deleteBlog,
+  addContactForm
 } from './actions';
 
 const initialState = {
   blogs: [],
+  contactForms:[],
   selectedBlog: null,
   isFetching: false,
   isAdding: false,
@@ -58,6 +60,21 @@ const blogReducer = handleActions(
       ...state,
       blogs: [...state.blogs, payload],
       isAdding: false,
+    }),
+    [addContactForm]: (state) => ({
+      ...state,
+      isAdding: true,
+      error: null,
+    }),
+    [addContactForm.success]: (state, { payload }) => ({
+      ...state,
+      contactForms: [...state.contactForms, payload],
+      isAdding: false,
+    }),
+    [addContactForm.failure]: (state, { payload }) => ({
+      ...state,
+      isAdding: false,
+      error: payload,
     }),
     [updateBlog.success]: (state, { payload }) => ({
       ...state,

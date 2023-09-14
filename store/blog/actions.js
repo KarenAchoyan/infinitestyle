@@ -11,6 +11,11 @@ export const getBlog = {
   success: createAction('GET_BLOG_SUCCESS'),
   failure: createAction('GET_BLOG_FAILURE'),
 };
+export const addContactForm = {
+  request: createAction('ADD_CONTACT_FORM_REQUEST'),
+  success: createAction('ADD_CONTACT_FORM_SUCCESS'),
+  failure: createAction('ADD_CONTACT_FORM_FAILURE'),
+};
 
 
 export const addBlog = {

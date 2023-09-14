@@ -13,9 +13,9 @@ export const updateContact = {
 };
 
 export const insertContact = {
-  request: createAction('INSERT_CONTACT_REQUEST'),
-  success: createAction('INSERT_CONTACT_SUCCESS'),
-  failure: createAction('INSERT_CONTACT_FAILURE'),
+  request: createAction('ADD_CONTACT_REQUEST'),
+  success: createAction('ADD_CONTACT_SUCCESS'),
+  failure: createAction('ADD_CONTACT_FAILURE'),
 };
 
 export const getAllContacts = {

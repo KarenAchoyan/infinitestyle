@@ -5,6 +5,7 @@ import {
   addBlog,
   updateBlog,
   deleteBlog,
+  addContactForm,
 } from './actions';
 import axiosInstance from "@/configs/axiosIntance";
 import {addCategory, deleteCategory} from "@/store/category/actions";
@@ -36,6 +37,7 @@ function* handleAddBlog(action) {
   } catch (error) {
   }
 }
+
 function* handleDeleteBlog(action) {
   try {
     const { payload: blogId } = action; // Extract the categoryId from the payload
@@ -46,10 +48,21 @@ function* handleDeleteBlog(action) {
   }
 }
 
+function* handleAddContactForm(action) {
+  try {
+    const newBlog = yield call(() => axiosInstance.post(`/contacts`, action.payload));
+    yield put(addContactForm.success(newBlog));
+  } catch (error) {
+  }
+}
+
+
 export default function* blogSaga() {
   yield takeLatest(getBlogs.request, handleGetBlogs);
   yield takeLatest(getBlog.request, handleGetBlog);
   yield takeLatest(addBlog.request, handleAddBlog);
   // yield takeLatest(updateBlog.request, handleUpdateBlog);
   yield takeLatest(deleteBlog.request, handleDeleteBlog);
+  yield takeLatest(addContactForm.request, handleAddContactForm);
+
 }
