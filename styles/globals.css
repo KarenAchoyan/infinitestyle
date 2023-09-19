@@ -1441,6 +1441,9 @@ footer h4 {
     button.carousel-next{
         display: none;
     }
+    .content-contact, .Blog{
+        width: 90%;
+    }
     .slide-buttons-review img{
         width: 20px;
     }

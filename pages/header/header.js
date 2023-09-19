@@ -100,7 +100,7 @@ const Header = () => {
               <span><MenuOutlined/></span>
             </span>
           </div>
-          <Drawer title="Infinite" placement="right" closable={false} onClose={onClose} visible={visible}>
+          <Drawer width={300} title="Infinite" placement="right" closable={false} onClose={onClose} visible={visible}>
             <MobileMenu/>
           </Drawer>
         </div>

@@ -68,5 +68,5 @@ class DistanceCalculator extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'YOUR_API_KEY', // Replace with your actual API key
+  apiKey: 'AIzaSyD5mtfaBCUD-8fDWe9kcpD4OqKnYyW4LbI', // Replace with your actual API key
 })(DistanceCalculator);

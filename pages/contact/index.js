@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input, Button, message } from 'antd';
 import { useDispatch } from 'react-redux';
 
@@ -19,6 +19,7 @@ import { addContactForm } from '@/store/blog/actions';
 const Contact = () => {
   const [form] = Form.useForm(); // Create a form instance
   const dispatch = useDispatch();
+  const [successMessage, setSuccessMessage] = useState("")
 
   const onFinish = (values) => {
     const formData = new FormData();
@@ -28,7 +29,8 @@ const Contact = () => {
     formData.append('message',values.message);
 
     dispatch(addContactForm.request(formData))
-    message.success('Form submitted successfully');
+    // message.success('Form submitted successfully');
+    setSuccessMessage("Form submitted successfully")
     form.resetFields(); // Re/set the form fields
   };
 
@@ -164,6 +166,9 @@ const Contact = () => {
                 ]}
               >
                 <TextArea placeholder="Message*" />
+                {successMessage!="" && 
+                  <p style={{color:'green'}}>{ successMessage }</p>
+                }
               </Form.Item>
               <div className="form-group">
                 <Button type="primary" htmlType="submit">
