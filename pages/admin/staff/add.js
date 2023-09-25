@@ -26,10 +26,13 @@ const CreateStaffPage = () => {
   const handleSubmit = (values) => {
     const formData = new FormData();
     formData.append('fullname', values.fullname);
-    formData.append('avatar', values.avatar.file);
+    if(values.avatar){
+      formData.append('avatar', values.avatar.file);
+    }
     dispatch(addStaff.request(formData, handleSuccess, handleError));
     message.success('Staff created successfully');
     form.resetFields();
+    setAvatarPreview("")
   };
 
   const handleSuccess = () => {
@@ -50,7 +53,6 @@ const CreateStaffPage = () => {
           <Form.Item
             name="avatar"
             label="Avatar"
-            rules={[{required: true, message: 'Please upload an avatar'}]}
           >
             <Upload
               accept="image/*"

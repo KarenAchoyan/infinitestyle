@@ -15,10 +15,11 @@ const Blog = () => {
   useEffect(() => {
     dispatch(getBlogs.request());
   }, [dispatch]);
+
   return (
     <div>
       <Head>
-      <title>Infinite - Book A Limo In Los Angeles</title>
+        <title>Infinite - Book A Limo In Los Angeles</title>
       </Head>
       <Header/>
       <div className={'Blog'}>

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Input, Button, message } from 'antd';
-import { useDispatch } from 'react-redux';
+import {useDispatch, useSelector} from "react-redux";
 
 import {
   UserOutlined,
@@ -16,9 +16,18 @@ const { TextArea } = Input;
 import Header from '@/pages/header/header';
 import Footer from '@/pages/footer/footer';
 import { addContactForm } from '@/store/blog/actions';
+import { getContact } from '@/store/about/actions';
+
 const Contact = () => {
-  const [form] = Form.useForm(); // Create a form instance
+  const contact = useSelector((state) => state.contact.contact);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getContact.request());
+  }, [dispatch]);
+
+
+  const [form] = Form.useForm(); // Create a form instance
   const [successMessage, setSuccessMessage] = useState("")
 
   const onFinish = (values) => {
@@ -52,8 +61,7 @@ const Contact = () => {
           <div className="section-contact">
             <h1>Get in touch with us</h1>
             <p className={'description-text'}>
-              To make a reservation, please call us or book through our website. For any other questions or concerns,
-              please don’t hesitate to reach out to us by phone or by filling out a form on the right.
+              {contact.aboutMe}
             </p>
             <div className="row-icons">
               <div className="group-contact">
@@ -62,7 +70,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p>Have a question?</p>
-                  <h5><a href='whatsapp://send?phone=+12345166'>+12345166</a></h5>
+                  <h5><a href={'whatsapp://send?phone='+contact.phone}>{contact.phone}</a></h5>
                 </div>
               </div>
               <div className="group-contact">
@@ -71,7 +79,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p>Contact us at</p>
-                  <h5><a href='mailto:infinite@.co'>infinite@.co</a></h5>
+                  <h5><a href={'mailto:'+contact.email}>{contact.email}</a></h5>
                 </div>
               </div>
               <div className="group-contact">
@@ -130,6 +138,7 @@ const Contact = () => {
               </Form.Item>
               <Form.Item
                 name="phone"
+                initialValue="+1"
                 rules={[
                   {
                     required: true,
@@ -165,7 +174,7 @@ const Contact = () => {
                   },
                 ]}
               >
-                <TextArea placeholder="Message*" />
+                <TextArea style={{resize:'none', 'min-height':'150px', 'max-height':'150px'}} placeholder="Message*" />
                 {successMessage!="" && 
                   <p style={{color:'green'}}>{ successMessage }</p>
                 }

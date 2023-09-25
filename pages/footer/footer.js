@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from "next/link";
+import {useDispatch, useSelector} from "react-redux";
+import { getContact } from '@/store/about/actions';
 
 const Footer = () => {
+  const contact = useSelector((state) => state.contact.contact);
+  const dispatch = useDispatch();
+  const [info, setInfo] = useState({
+    phone:"",
+    address:"",
+    email:""
+  })
+
+  useEffect(() => {
+    dispatch(getContact.request());
+  }, [dispatch]);
+
   return (
     <footer>
       <div className="container-footer">
@@ -21,10 +35,10 @@ const Footer = () => {
         <div className="place-footer">
           <h4>Contact Us</h4>
           <ul>
-            <li><a  rel="noreferrer" target="_blank" href="https://www.google.com/maps/place/%D4%BF%D5%A1%D5%AC%D5%AB%D6%86%D5%B8%D5%BC%D5%B6%D5%AB%D5%A1,+%D5%84%D5%AB%D5%A1%D6%81%D5%B5%D5%A1%D5%AC+%D5%86%D5%A1%D5%B0%D5%A1%D5%B6%D5%A3%D5%B6%D5%A5%D6%80/@37.1514531,-124.5950266,6z/data=!3m1!4b1!4m6!3m5!1s0x808fb9fe5f285e3d:0x8b5109a227086f55!8m2!3d36.778261!4d-119.4179324!16zL20vMDFuN3E?entry=ttu">Address</a></li>
-            <li><a href="mailto:infinit@co">infinite@co</a></li>
-            <li><a href='whatsapp://send?phone=+12345166'>+12345166</a></li>
-          </ul>
+            {/* <li><a  rel="noreferrer" target="_blank" href="https://www.google.com/maps/place/%D4%BF%D5%A1%D5%AC%D5%AB%D6%86%D5%B8%D5%BC%D5%B6%D5%AB%D5%A1,+%D5%84%D5%AB%D5%A1%D6%81%D5%B5%D5%A1%D5%AC+%D5%86%D5%A1%D5%B0%D5%A1%D5%B6%D5%A3%D5%B6%D5%A5%D6%80/@37.1514531,-124.5950266,6z/data=!3m1!4b1!4m6!3m5!1s0x808fb9fe5f285e3d:0x8b5109a227086f55!8m2!3d36.778261!4d-119.4179324!16zL20vMDFuN3E?entry=ttu">{contact.address}</a></li> */}
+            {/* <li><a href="mailto:infinit@co">{info.email}</a></li> */}
+            {/* <li><a href='whatsapp://send?phone=+12345166'>{info.phone}</a></li> */}
+          </ul> 
         </div>
       </div>
       <div className="footer-bottom">
