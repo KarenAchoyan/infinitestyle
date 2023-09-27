@@ -111,10 +111,10 @@ const Navbar = (props) => {
                     }}
                   />
               </Header>
-              <Content style={{ margin: '24px 16px', padding: 24, minHeight: 280 }}>
-                 <div style={{minHeight:'80vh'}}>
-                    {props.children}
-                 </div>
+              <Content style={{ margin: '24px 16px', padding: 24, minHeight: '100vh' }}>
+                  <div>
+                  {props.children}
+                  </div>
               </Content>
           </Layout>
       </Layout>
