@@ -79,7 +79,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p>Contact us at</p>
-                  <h5><a href={'mailto:info@infinitestyle.net'}>{"info@infinitestyle.net"}</a></h5>
+                  <h5><a href={'mailto:info@infinitestyle.net'+contact.email}>{contact.email}</a></h5>
                 </div>
               </div>
               <div className="group-contact">

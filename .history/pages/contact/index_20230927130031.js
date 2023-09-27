@@ -61,7 +61,7 @@ const Contact = () => {
           <div className="section-contact">
             <h1>Get in touch with us</h1>
             <p className={'description-text'}>
-            Test Test Test Test Test Test Test Test Test Test Test Test 
+              Test 
             </p>
             <div className="row-icons">
               <div className="group-contact">
@@ -70,7 +70,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p>Have a question?</p>
-                  <h5><a href={'facetime://+111111111'}>{+111111111}</a></h5>
+                  <h5><a href={'facetime://'+contact.phone}>{contact.phone}</a></h5>
                 </div>
               </div>
               <div className="group-contact">
@@ -79,7 +79,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p>Contact us at</p>
-                  <h5><a href={'mailto:info@infinitestyle.net'}>{"info@infinitestyle.net"}</a></h5>
+                  <h5><a href={'mailto:'+contact.email}>{contact.email}</a></h5>
                 </div>
               </div>
               <div className="group-contact">
