@@ -29,7 +29,8 @@
     "redux": "^4.2.1",
     "redux-actions": "^3.0.0",
     "redux-saga": "^1.2.3",
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "eslint": "8.30.0",
