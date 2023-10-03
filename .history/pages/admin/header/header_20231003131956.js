@@ -102,7 +102,7 @@ const Navbar = (props) => {
                           <Link href="/admin/service/1">Services</Link>
                       </Menu.Item>
                   </SubMenu>
-                  <Menu.Item key="14"  onClick={()=>selectSub("sub14")} icon={<LogoutOutlined />} >
+                  <Menu.Item key="14"  onClick={()=>selectSub("sub14")} icon={<LogoutOutlined />} onClick={handleLogoutBtn}>
                       Logout
                   </Menu.Item>
               </Menu>
