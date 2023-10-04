@@ -30,15 +30,16 @@ const Navbar = (props) => {
     const [collapsed, setCollapsed] = useState(false);
     const { token: { colorBgContainer } } = theme.useToken();
     const router = useRouter();
+    const [openSubmenus, setOpenSubmenus] = useState([]);
 
     const handleLogoutBtn = () => {
         handleLogout()
         // Perform logout logic here
         // Redirect the user to the login page or do any other necessary actions
     };
-    function selectSub(s){
-        setSubMenu(s)
-        // localStorage.setItem("submenu", s);
+    function selectSub(s) {
+        setSubMenu(s);
+        setOpenSubmenus([s]);
     }
 
     const getSelectedKey = (path) => {
@@ -48,17 +49,32 @@ const Navbar = (props) => {
         return key===path;
     };
 
-    
+    const isSubmenuOpen = (submenu) => {
+        return openSubmenus.includes(submenu);
+    };
+
+    const toggleSubmenu = (submenu) => {
+        if (isSubmenuOpen(submenu)) {
+            setOpenSubmenus([]);
+        } else {
+            setOpenSubmenus([submenu]);
+        }
+    };
 
     return (
       <Layout>
           <Sider trigger={null} collapsible collapsed={collapsed}>
               <div className="demo-logo-vertical" />
-              <Menu theme="dark" mode="inline" defaultSelectedKeys={subMenu} defaultOpenKeys={[subMenu]}>
+              <Menu theme="dark" mode="inline" 
+              defaultSelectedKeys={subMenu} 
+              defaultOpenKeys={[subMenu]}
+              openKeys={openSubmenus}
+              onOpenChange={(keys) => setOpenSubmenus(keys)}
+              >
                   <Menu.Item key="1" icon={<UserOutlined />}>
                       <Link href="/admin">Admin</Link>
                   </Menu.Item>
-                  <SubMenu key="sub1" onClick={()=>selectSub("sub1")} icon={<TeamOutlined />}  title="Review">
+                  <SubMenu key="sub1" onClick={()=>toggleSubmenu("sub1")} icon={<TeamOutlined />}  title="Review">
                       <Menu.Item key="3" className={getSelectedKey("review/all") ? "ant-menu-item-selected" : ""}>
                           <Link href="/admin/review/all">All Reviews</Link>
                       </Menu.Item>
@@ -66,7 +82,7 @@ const Navbar = (props) => {
                           <Link href="/admin/review/add">Create Review</Link>
                       </Menu.Item>
                   </SubMenu>
-                  <SubMenu key="sub2"  onClick={()=>selectSub("sub2")}  icon={<UserOutlined />} title="Staff">
+                  <SubMenu key="sub2"  onClick={()=>toggleSubmenu("sub2")}  icon={<UserOutlined />} title="Staff">
                       <Menu.Item key="5"  className={getSelectedKey("staff/all") ? "ant-menu-item-selected" : ""}>
                           <Link href="/admin/staff/all">All Staff</Link>
                       </Menu.Item>

@@ -48,13 +48,18 @@ const Navbar = (props) => {
         return key===path;
     };
 
-    
+    const getDefaultOpenKeys = () => {
+        if (subMenu.startsWith('sub')) {
+            return [subMenu];
+        }
+        return [];
+    };
 
     return (
       <Layout>
           <Sider trigger={null} collapsible collapsed={collapsed}>
               <div className="demo-logo-vertical" />
-              <Menu theme="dark" mode="inline" defaultSelectedKeys={subMenu} defaultOpenKeys={[subMenu]}>
+              <Menu theme="dark" mode="inline" defaultSelectedKeys={subMenu} defaultOpenKeys={getDefaultOpenKeys}>
                   <Menu.Item key="1" icon={<UserOutlined />}>
                       <Link href="/admin">Admin</Link>
                   </Menu.Item>

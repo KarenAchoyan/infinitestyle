@@ -41,14 +41,12 @@ const Navbar = (props) => {
         // localStorage.setItem("submenu", s);
     }
 
-    const getSelectedKey = (path) => {
+    const getSelectedKey = () => {
         const currentPath = router.pathname;
         // Extract the key from the path, for example, "/admin/blog/all" -> "3"
         const key = currentPath.split('/').slice(-2).join('/')
-        return key===path;
+        return key;
     };
-
-    
 
     return (
       <Layout>
@@ -59,55 +57,55 @@ const Navbar = (props) => {
                       <Link href="/admin">Admin</Link>
                   </Menu.Item>
                   <SubMenu key="sub1" onClick={()=>selectSub("sub1")} icon={<TeamOutlined />}  title="Review">
-                      <Menu.Item key="3" className={getSelectedKey("review/all") ? "ant-menu-item-selected" : ""}>
+                      <Menu.Item key="3">
                           <Link href="/admin/review/all">All Reviews</Link>
                       </Menu.Item>
-                      <Menu.Item key="4" className={getSelectedKey("review/add") ? "ant-menu-item-selected" : ""}>
+                      <Menu.Item key="4">
                           <Link href="/admin/review/add">Create Review</Link>
                       </Menu.Item>
                   </SubMenu>
                   <SubMenu key="sub2"  onClick={()=>selectSub("sub2")}  icon={<UserOutlined />} title="Staff">
-                      <Menu.Item key="5"  className={getSelectedKey("staff/all") ? "ant-menu-item-selected" : ""}>
+                      <Menu.Item key="5">
                           <Link href="/admin/staff/all">All Staff</Link>
                       </Menu.Item>
-                      <Menu.Item key="6" className={getSelectedKey("staff/add") ? "ant-menu-item-selected" : ""}>
+                      <Menu.Item key="6">
                           <Link href="/admin/staff/add">Create New Staff</Link>
                       </Menu.Item>
                   </SubMenu>
                   <SubMenu key="sub3"  onClick={()=>selectSub("sub3")}  icon={<FormOutlined />} title="Blog">
-                      <Menu.Item key="8"  className={getSelectedKey("blog/all") ? "ant-menu-item-selected" : ""}>
+                      <Menu.Item key="8">
                           <Link href="/admin/blog/all">All Blogs</Link>
                       </Menu.Item>
-                      <Menu.Item key="9"  className={getSelectedKey("blog/add") ? "ant-menu-item-selected" : ""}>
+                      <Menu.Item key="9">
                           <Link href="/admin/blog/add">Create Blog</Link>
                       </Menu.Item>
                   </SubMenu>
                   <SubMenu key="sub4"  onClick={()=>selectSub("sub4")}  icon={<UserAddOutlined />} title="Category">
-                      <Menu.Item key="15"  className={getSelectedKey("category/all") ? "ant-menu-item-selected" : ""}>
+                      <Menu.Item key="15">
                           <Link href="/admin/category/all">All Categories</Link>
                       </Menu.Item>
-                      <Menu.Item key="16"  className={getSelectedKey("category/add") ? "ant-menu-item-selected" : ""}>
+                      <Menu.Item key="16">
                           <Link href="/admin/category/add">Create Category</Link>
                       </Menu.Item>
                   </SubMenu>
                   <SubMenu key="sub19"  onClick={()=>selectSub("sub19")}  icon={<UserAddOutlined />} title="Car">
-                      <Menu.Item key="17"  className={getSelectedKey("car/all") ? "ant-menu-item-selected" : ""}>
+                      <Menu.Item key="17">
                           <Link href="/admin/car/all">All Car</Link>
                       </Menu.Item>
-                      <Menu.Item key="18"  className={getSelectedKey("car/add") ? "ant-menu-item-selected" : ""}>
+                      <Menu.Item key="18">
                           <Link href="/admin/car/add">Create Car</Link>
                       </Menu.Item>
                   </SubMenu>
                   <SubMenu key="sub5"  onClick={()=>selectSub("sub5")} icon={<UserOutlined />} title="Contact">
-                      <Menu.Item key="12"  className={getSelectedKey("contact/all") ? "ant-menu-item-selected" : ""}>
+                      <Menu.Item key="12">
                           <Link href="/admin/contact/all">Form Result</Link>
                       </Menu.Item>
-                      <Menu.Item key="13"  className={getSelectedKey("contact/update") ? "ant-menu-item-selected" : ""}>
+                      <Menu.Item key="13">
                           <Link href="/admin/contact/update">Update Info</Link>
                       </Menu.Item>
                   </SubMenu>                 
                   <SubMenu key="sub35"  onClick={()=>selectSub("sub35")} icon={<UserOutlined />} title="Services">
-                      <Menu.Item key="312" >
+                      <Menu.Item key="312">
                           <Link href="/admin/service/1">Services</Link>
                       </Menu.Item>
                   </SubMenu>

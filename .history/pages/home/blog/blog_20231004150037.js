@@ -1,30 +1,26 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect} from 'react';
 import Details from "./details";
 import {useDispatch, useSelector} from "react-redux";
 import {getReviews} from "@/store/review/actions";
 import {getBlogs} from "@/store/blog/actions";
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-
 
 const Blog = () => {
   const blogs = useSelector((state) => state.blog.blogs);
   const dispatch = useDispatch();
-  const [slidesToShow, setSlidesToShow] = useState(3);
 
   useEffect(() => {
     dispatch(getBlogs.request());
   }, [dispatch]);
   useEffect(() => {
     const handleResize = () => {
-      if(window.innerWidth <= 800) {
+      if (window.innerWidth <= 500) {
+        setSlidesToShow(1); // Adjust the number of slides for smaller screens
+      } else if(window.innerWidth <= 800) {
         setSlidesToShow(1); // Default number of slides for larger screens
       }else if(window.innerWidth <= 1000) {
-        setSlidesToShow(2); // Default number of slides for larger screens
+        setSlidesToShow(4); // Default number of slides for larger screens
       }else{
-        setSlidesToShow(3);
+        setSlidesToShow(5);
       }
     };
 
@@ -42,6 +38,7 @@ const Blog = () => {
     <div className={'container-blog'}>
       <h3>What’s New?</h3>
       <h2>Our Blog</h2>
+      <div className="blog-row">
         <Slider 
             infinite={false}
             slidesToShow={slidesToShow}
@@ -54,6 +51,8 @@ const Blog = () => {
               <Details key={item.id} item={item}/>
             ))}
         </Slider>
+
+      </div>
     </div>
   );
 };

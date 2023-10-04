@@ -48,7 +48,12 @@ const Navbar = (props) => {
         return key===path;
     };
 
-    
+    const getDefaultOpenKeys = () => {
+        if (subMenu.startsWith('sub')) {
+            return [subMenu];
+        }
+        return [];
+    };
 
     return (
       <Layout>

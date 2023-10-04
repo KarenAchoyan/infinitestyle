@@ -48,8 +48,6 @@ const Navbar = (props) => {
         return key===path;
     };
 
-    
-
     return (
       <Layout>
           <Sider trigger={null} collapsible collapsed={collapsed}>

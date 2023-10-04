@@ -48,8 +48,6 @@ const Navbar = (props) => {
         return key===path;
     };
 
-    
-
     return (
       <Layout>
           <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -107,7 +105,7 @@ const Navbar = (props) => {
                       </Menu.Item>
                   </SubMenu>                 
                   <SubMenu key="sub35"  onClick={()=>selectSub("sub35")} icon={<UserOutlined />} title="Services">
-                      <Menu.Item key="312" >
+                      <Menu.Item key="312"  className={getSelectedKey("car/all") ? "ant-menu-item-selected" : ""}>
                           <Link href="/admin/service/1">Services</Link>
                       </Menu.Item>
                   </SubMenu>

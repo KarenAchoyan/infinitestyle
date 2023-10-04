@@ -47,7 +47,6 @@ const Navbar = (props) => {
         const key = currentPath.split('/').slice(-2).join('/')
         return key===path;
     };
-
     
 
     return (

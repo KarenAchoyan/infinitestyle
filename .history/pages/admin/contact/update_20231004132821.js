@@ -16,6 +16,7 @@ const UpdateContactInfoPage = () => {
 
   // Handle form submission
   const handleSubmit = async (values) => {
+    const { id } = contact; 
     dispatch(updateContact.request({...contact, ...values}));
     message.success('Contact information updated successfully!');
   };

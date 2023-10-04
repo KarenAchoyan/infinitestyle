@@ -1,4 +1,4 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect} from 'react';
 import Details from "./details";
 import {useDispatch, useSelector} from "react-redux";
 import {getReviews} from "@/store/review/actions";
@@ -42,6 +42,7 @@ const Blog = () => {
     <div className={'container-blog'}>
       <h3>What’s New?</h3>
       <h2>Our Blog</h2>
+      <div className="blog-row">
         <Slider 
             infinite={false}
             slidesToShow={slidesToShow}
@@ -54,6 +55,8 @@ const Blog = () => {
               <Details key={item.id} item={item}/>
             ))}
         </Slider>
+
+      </div>
     </div>
   );
 };

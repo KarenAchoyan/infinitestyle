@@ -36,9 +36,9 @@ const Navbar = (props) => {
         // Perform logout logic here
         // Redirect the user to the login page or do any other necessary actions
     };
-    function selectSub(s){
-        setSubMenu(s)
-        // localStorage.setItem("submenu", s);
+    function selectSub(s) {
+        setSubMenu(s);
+        setOpenSubmenus([s]);
     }
 
     const getSelectedKey = (path) => {
@@ -48,7 +48,17 @@ const Navbar = (props) => {
         return key===path;
     };
 
-    
+    const isSubmenuOpen = (submenu) => {
+        return openSubmenus.includes(submenu);
+    };
+
+    const toggleSubmenu = (submenu) => {
+        if (isSubmenuOpen(submenu)) {
+            setOpenSubmenus([]);
+        } else {
+            setOpenSubmenus([submenu]);
+        }
+    };
 
     return (
       <Layout>

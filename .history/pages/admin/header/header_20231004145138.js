@@ -48,7 +48,17 @@ const Navbar = (props) => {
         return key===path;
     };
 
-    
+    const isSubmenuOpen = (submenu) => {
+        return openSubmenus.includes(submenu);
+    };
+
+    const toggleSubmenu = (submenu) => {
+        if (isSubmenuOpen(submenu)) {
+            setOpenSubmenus([]);
+        } else {
+            setOpenSubmenus([submenu]);
+        }
+    };
 
     return (
       <Layout>

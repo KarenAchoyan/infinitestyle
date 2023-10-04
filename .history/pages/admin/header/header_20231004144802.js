@@ -48,8 +48,6 @@ const Navbar = (props) => {
         return key===path;
     };
 
-    
-
     return (
       <Layout>
           <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -91,15 +89,15 @@ const Navbar = (props) => {
                       </Menu.Item>
                   </SubMenu>
                   <SubMenu key="sub19"  onClick={()=>selectSub("sub19")}  icon={<UserAddOutlined />} title="Car">
-                      <Menu.Item key="17"  className={getSelectedKey("car/all") ? "ant-menu-item-selected" : ""}>
+                      <Menu.Item key="17"  className={getSelectedKey("category/add") ? "ant-menu-item-selected" : ""}>
                           <Link href="/admin/car/all">All Car</Link>
                       </Menu.Item>
-                      <Menu.Item key="18"  className={getSelectedKey("car/add") ? "ant-menu-item-selected" : ""}>
+                      <Menu.Item key="18"  className={getSelectedKey("category/add") ? "ant-menu-item-selected" : ""}>
                           <Link href="/admin/car/add">Create Car</Link>
                       </Menu.Item>
                   </SubMenu>
                   <SubMenu key="sub5"  onClick={()=>selectSub("sub5")} icon={<UserOutlined />} title="Contact">
-                      <Menu.Item key="12"  className={getSelectedKey("contact/all") ? "ant-menu-item-selected" : ""}>
+                      <Menu.Item key="12"  className={getSelectedKey("contact/add") ? "ant-menu-item-selected" : ""}>
                           <Link href="/admin/contact/all">Form Result</Link>
                       </Menu.Item>
                       <Menu.Item key="13"  className={getSelectedKey("contact/update") ? "ant-menu-item-selected" : ""}>
@@ -107,7 +105,7 @@ const Navbar = (props) => {
                       </Menu.Item>
                   </SubMenu>                 
                   <SubMenu key="sub35"  onClick={()=>selectSub("sub35")} icon={<UserOutlined />} title="Services">
-                      <Menu.Item key="312" >
+                      <Menu.Item key="312">
                           <Link href="/admin/service/1">Services</Link>
                       </Menu.Item>
                   </SubMenu>

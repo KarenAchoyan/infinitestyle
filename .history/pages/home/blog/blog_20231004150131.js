@@ -42,6 +42,7 @@ const Blog = () => {
     <div className={'container-blog'}>
       <h3>What’s New?</h3>
       <h2>Our Blog</h2>
+      <div className="blog-row">
         <Slider 
             infinite={false}
             slidesToShow={slidesToShow}
@@ -54,6 +55,8 @@ const Blog = () => {
               <Details key={item.id} item={item}/>
             ))}
         </Slider>
+
+      </div>
     </div>
   );
 };
